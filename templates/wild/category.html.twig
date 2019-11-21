@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block body %}
+<div class="d-flex ">
+    {% for program in programs %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{program.poster}}" class="card-img-top" alt="{{ program.title }}">
+            <div class="card-body card-body-category">
+                <h5 class="card-title">{{ program.title }}</h5>
+                <p class="card-text">{{ program.summary }}</p>
+                <p class="card-text">Categorie : {{ program.category.name }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+    <br>
+    <a href="{{ path('wild_index') }}">
+        Testing index() method from WildController to view all programs.
+    </a>
+
+{% endblock %}
