@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="media program d-flex flex-column align-items-center">
+        <div class="programInfos d-flex flex-column align-items-center">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+        </div>
+        <div class="d-flex align-items-center">
+            <div>
+                <img class="align-self-start" src="{{ program.poster }}" alt="{{ program.title }} poster">
+            </div>
+            <div>
+                {% for season in seasons %}
+                    <a href="{{ path('wild_show_season', {'id': season.id }) }}" class="ml-5"> Season : {{ season.id }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
+

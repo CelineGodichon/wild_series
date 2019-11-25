@@ -13,7 +13,7 @@ body {
             #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%,
             #e7627d 46%, #b8235a 59%, #801357 71%,
             #3d1635 84%, #1c1a27 100%);
-    height : 100vh;
+    height : 500vh;
     color : white;
 }
 
@@ -45,3 +45,28 @@ nav{
 .card-body-category{
     color:black;
 }
+.program {
+    color: black;
+
+    .programInfos {
+        color: white;
+    }
+
+    img {
+        max-height: 40rem;
+    }
+}
+
+    /* EPISODES*/
+
+    .episodes {
+        color: black;
+
+        .programInfos {
+            color: white;
+        }
+
+        img {
+            max-height: 40rem;
+        }
+    }
