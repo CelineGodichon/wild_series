@@ -11,9 +11,12 @@
         </div>
         <div class="media-body m-5">
             {% for episode in episodes %}
-                <h2>{{ episode.title }}</h2>
-                <p> Episode {{ episode.number }} :</p>
-                <p>{{ episode.synopsis }}</p>
+                <div class="d-flex align-items-baseline">
+                    <p>Episode {{ episode.number }} - </p>
+                    <a href="{{ path('wild_show_episode', {'id': episode.id }) }}">
+                        <h2> {{ episode.title }}</h2>
+                    </a>
+                </div>
                 <hr>
             {% endfor %}
         </div>

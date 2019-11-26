@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
+use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use Doctrine\DBAL\Event\SchemaEventArgs;
@@ -40,30 +41,16 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/show/{slug<^[a-z0-9]+(?:-[a-z0-9]+)*$>}", name="show")
-     * @param string $slug
+     * @Route("/show/{program}", name="show")
+     * @param Program $program
      * @return Response
      */
-    public function show(?string $slug): Response
+    public function show(Program $program): Response
     {
-        if (!$slug) {
-            throw $this
-                ->createNotFoundException("Aucune série sélectionnée, veuillez choisir une série");
-        }
-        $slug = preg_replace(
-            '/-/',
-            ' ', ucwords(trim(strip_tags($slug)), "-")
-        );
-        $program = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findOneBy(['title' => mb_strtolower($slug)]);
-        if (!$program) {
-            throw $this->createNotFoundException(
-                'No program with ' . $slug . ' title, found in program\'s table.');
-        }
-        return $this->render('wild/show.html.twig', [
+        $seasons = $program->getSeasons();
+        return $this->render('wild/program.html.twig', [
             'program' => $program,
-            'slug' => $slug,
+            'seasons' => $seasons,
         ]);
     }
 
@@ -132,7 +119,6 @@ class WildController extends AbstractController
      * @param int $id
      * @return Response
      * @Route("/season/{id}", defaults={"id" = null}, name="show_season")
-
      */
     public function showBySeason(int $id)
     {
@@ -145,5 +131,19 @@ class WildController extends AbstractController
             'program' => $program,
             'episodes'  => $episodes,
         ]);
+    }
+
+    /**
+     * @Route("/episode/{id}", name="show_episode")
+     * @param Episode $episode
+     * @return Response
+     */
+
+    public function showByEpisode(Episode $episode): Response
+
+    {
+        $season = $episode->getSeason();
+        $program = $season->getProgram();
+        return $this->render('wild/episode.html.twig', ['episode'=>$episode, 'program'=>$program, 'season' => $season ]);
     }
 }
