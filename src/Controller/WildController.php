@@ -21,8 +21,6 @@ class WildController extends AbstractController
      * @Route("/",name="index")
      *
      */
-
-
     public function index(): Response
     {
         $programs = $this->getDoctrine()
@@ -41,7 +39,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/show/{program}", name="show")
+     * @Route("/program/{program}", name="program")
      * @param Program $program
      * @return Response
      */
@@ -85,7 +83,7 @@ class WildController extends AbstractController
      * @return Response
      * @Route("/program/{slug}", defaults={"slug" = null}, name="show_program")
      */
-    public function showByProgram(?string $slug)
+   /* public function showByProgram(?string $slug)
     {
         if (!$slug) {
             throw $this
@@ -112,13 +110,13 @@ class WildController extends AbstractController
             'slug' => $slug,
             'seasons' => $seasons
         ]);
-    }
+    }*/
 
 
     /**
      * @param int $id
      * @return Response
-     * @Route("/season/{id}", defaults={"id" = null}, name="show_season")
+     * @Route("/season/{id}", defaults={"id" = null}, name="season")
      */
     public function showBySeason(int $id)
     {
@@ -134,7 +132,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/episode/{id}", name="show_episode")
+     * @Route("/episode/{id}", name="episode")
      * @param Episode $episode
      * @return Response
      */
