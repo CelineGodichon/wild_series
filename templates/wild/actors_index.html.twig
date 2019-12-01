@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Actor{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column align-items-center">
+    <h1>Actors :</h1>
+    <ul>
+        {% for actor in actors %}
+            <a href="{{ path('wild_actor', {'id' : actor.id}) }}"><li>{{ actor.name }}</li></a>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

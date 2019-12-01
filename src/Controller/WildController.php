@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Actor;
 use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
@@ -68,6 +69,49 @@ class WildController extends AbstractController
             'seasons' => $seasons,
         ]);
     }
+
+    /**
+     * @Route("/actors", name="actors_index")
+     * @return Response
+     */
+    public function showActors()
+    {
+        $actors = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+        return $this->render('wild/actors_index.html.twig', [
+            'actors' => $actors,
+        ]);
+    }
+
+    /**
+     * @param int|null $id
+     * @Route("/actor/{id}", defaults={"id" = null}, name="actor")
+     * @return Response
+     */
+    public function showByActor(?int $id)
+    {
+        if (!$id) {
+            throw $this
+                ->createNotFoundException('No id has been sent to find a actor in actor\'s table.');
+        }
+        $actor = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findOneBy(['id' => $id]);
+        if (!$actor) {
+            throw $this->createNotFoundException(
+                'No program with found in program\'s table.'
+            );
+        }
+
+        $programs = $actor->getPrograms();
+
+        return $this->render('wild/actor.html.twig', [
+            'programs' => $programs,
+            'actor' => $actor,
+        ]);
+    }
+
 
     /**
      * @param int|null $id
