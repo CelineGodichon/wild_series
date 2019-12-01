@@ -39,7 +39,7 @@ class EpisodeController extends AbstractController
             $entityManager->persist($episode);
             $entityManager->flush();
 
-            return $this->redirectToRoute('episode_index');
+            return $this->redirectToRoute('episode_show', ['id'=> $episode->getId()]);
         }
 
         return $this->render('episode/new.html.twig', [

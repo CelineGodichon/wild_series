@@ -12,10 +12,10 @@ class ProgramType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('category', null, ['choice_label' => 'name'])
             ->add('title')
             ->add('summary')
             ->add('poster')
-            ->add('category', null, ['choice_label' => 'name'])
         ;
     }
 
