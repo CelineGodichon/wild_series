@@ -53,24 +53,27 @@ class WildController extends AbstractController
     }
 
     /**
-     * @param string|null $categoryName
-     * @Route("/category/{categoryName}", defaults={"categoryName" = null}, name="show_category")
+     * @param int|null $id
+     * @Route("/category/{id}", defaults={"id" = null}, name="show_category")
      * @return Response
      */
-
-    public function showByCategory(?string $categoryName)
+    public function showByCategory(?int $id)
     {
-        if (!$categoryName) {
-            throw $this->createNotFoundException('Aucune catégorie selectionnée');
+        if (!$id) {
+            throw $this->createNotFoundException('No program found');
         }
-        $category = $this->getDoctrine()->getRepository(Category::class)
-            ->findOneBy(['name' => mb_strtolower($categoryName)]);
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy(['id' => $id]);
 
-        $programs = $this->getDoctrine()->getRepository(Program::class)
-            ->findBy(['category' => $category], ['id' => 'desc'], 3);
+        $programs = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findBy(['category' => $category]);
 
         if (!$programs) {
-            throw  $this->createNotFoundException('Aucune série dans la catégorie ' . $categoryName);
+            throw  $this->createNotFoundException(
+                'This category has no program'
+            );
         }
         return $this->render('wild/category.html.twig', [
             'programs' => $programs,
@@ -79,39 +82,30 @@ class WildController extends AbstractController
     }
 
     /**
-     * @param string|null $slug
+     * @param int|null $id
+     * @Route("/program/{id}", defaults={"id" = null}, name="show_program")
      * @return Response
-     * @Route("/program/{slug}", defaults={"slug" = null}, name="show_program")
      */
-   /* public function showByProgram(?string $slug)
+    public function showByProgram(?int $id):Response
     {
-        if (!$slug) {
+        if (!$id) {
             throw $this
-                ->createNotFoundException("Aucune série sélectionnée, veuillez choisir une série");
+                ->createNotFoundException('No id has been sent to find a program in program\'s table.');
         }
-        $slug = preg_replace(
-            '/-/',
-            ' ', ucwords(trim(strip_tags($slug)), "-")
-        );
-
         $program = $this->getDoctrine()
             ->getRepository(Program::class)
-            ->findOneBy(['title' => mb_strtolower($slug)]);
-
-
-        $seasons = $program->getSeasons();
-
+            ->findOneBy(['id' => $id]);
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program with ' . $slug . ' title, found in program\'s table.');
+                'No program with found in program\'s table.'
+            );
         }
+        $seasons = $program->getSeasons();
         return $this->render('wild/program.html.twig', [
             'program' => $program,
-            'slug' => $slug,
-            'seasons' => $seasons
+            'seasons' => $seasons,
         ]);
-    }*/
-
+    }
 
     /**
      * @param int $id

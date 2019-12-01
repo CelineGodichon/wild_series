@@ -3,18 +3,17 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1>All programs from program table : </h1>
     {% for program in programs %}
         <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <h2>{{ loop.index }} / {{ program.title }} - Category : {{ program.category.name }}</h2>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
-        Aucune série trouvée.
+        No program found
     {% endfor %}
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
+        Bakc to Homepage </a>
 
     <br>
 
