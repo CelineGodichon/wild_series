@@ -7,8 +7,10 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramSearchType;
 use Doctrine\DBAL\Event\SchemaEventArgs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,27 +19,42 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class WildController extends AbstractController
 {
+
     /**
-     * @Route("/",name="index")
-     *
+     * @Route("/", name="index")
+     * @param Request $request
+     * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findAll();
+
         if (!$programs) {
             throw $this->createNotFoundException(
                 'No program found in program\'s table.'
             );
         }
+        $form = $this->createForm(ProgramSearchType::class);
+        $form->handleRequest($request);
 
-        return $this->render(
-            'wild/index.html.twig',
-            ['programs' => $programs]
-        );
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $searchProgram = $this->getDoctrine()
+                ->getRepository(Program::class)
+                ->findOneByTitle($data);
+            return $this->render('wild/index.html.twig', [
+                'programs' => $programs,
+                'program' => $searchProgram,
+                'form' => $form->createView(),
+            ]);
+        }
+        return $this->render('wild/index.html.twig', [
+            'programs' => $programs,
+            'form' => $form->createView(),
+        ]);
     }
-
     /**
      * @Route("/program/{program}", name="program")
      * @param Program $program
@@ -54,7 +71,7 @@ class WildController extends AbstractController
 
     /**
      * @param int|null $id
-     * @Route("/category/{id}", defaults={"id" = null}, name="show_category")
+     * @Route("/category/{id}", defaults={"id" = null}, name="category")
      * @return Response
      */
     public function showByCategory(?int $id)
@@ -83,7 +100,7 @@ class WildController extends AbstractController
 
     /**
      * @param int|null $id
-     * @Route("/program/{id}", defaults={"id" = null}, name="show_program")
+     * @Route("/program/{id}", defaults={"id" = null}, name="program")
      * @return Response
      */
     public function showByProgram(?int $id):Response

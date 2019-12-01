@@ -3,6 +3,22 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
+
+    <h3> Recherche </h3>
+    {{ form_start(form) }}
+    {{ form_row(form.searchField) }}
+    <br>
+    <button type="sumbit" class="btn btn-light" name="btnSearch">Search</button>
+    <br>
+    {{ form_end(form) }}
+
+    {% if program.title is defined %}
+        <p>{{ program.title }}</p>
+        <p>{{ program.summary }}</p>
+    {% endif %}
+    <br>
+
+
     <h1>All programs from program table : </h1>
     {% for program in programs %}
         <div>

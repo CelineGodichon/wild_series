@@ -14,7 +14,7 @@
         <h1>Categories :</h1>
         {% for category in categories %}
             <div>
-                <h2><a href="{{ path('wild_show_category', { 'id': category.id }) }}"> {{ category.name }} </a></h2>
+                <h2><a href="{{ path('wild_category', { 'id': category.id }) }}"> {{ category.name }} </a></h2>
             </div>
         {% else %}
             No program found
