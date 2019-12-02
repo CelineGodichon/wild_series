@@ -100,7 +100,7 @@ class WildController extends AbstractController
             ->findOneBy(['id' => $id]);
         if (!$actor) {
             throw $this->createNotFoundException(
-                'No program with found in program\'s table.'
+                'No actor was found in actor\'s table.'
             );
         }
 
