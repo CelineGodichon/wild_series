@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use Faker;
 use App\Entity\Actor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -41,6 +42,14 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface{
             foreach ($data['programs'] as $program) {
                 $actor->addProgram($this->getReference($program));
             }
+            $manager->persist($actor);
+        }
+        $faker = Faker\Factory::create('en_US');
+        for ($i = 0; $i < 50; $i++) {
+            $number = rand(0, 2);
+            $actor = new Actor();
+            $actor->setName($faker->name);
+            $actor->addProgram($this->getReference('program_' . $number));
             $manager->persist($actor);
         }
         $manager->flush();
