@@ -74,7 +74,7 @@ body {
 nav{
     background-color: $violet;
     height : 70px;
-    color : $pink;
+    color : white;
     font-size : 18px;
     border : 1px $darkViolet solid;
     box-shadow: 10px 5px 5px $darkViolet;
@@ -86,7 +86,7 @@ nav{
         background-color: $lightPink;
     }
     a{
-        color : $pink;
+        color : white;
         &:hover {
             color: $lightPink;
         }
