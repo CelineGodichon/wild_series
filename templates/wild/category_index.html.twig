@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+<div class="categories d-flex flex-column align-items-center">
+    <h1>Categories : </h1>
+<div class="d-flex">
+    {% for category in categories %}
+
+       <a class="categoryName" href="{{ path('wild_category', {'id' : category.id}) }}">{{ category.name }}</a>
+    {% endfor %}
+    </div>
+    </div>
+{% endblock %}

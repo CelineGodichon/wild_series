@@ -112,6 +112,19 @@ class WildController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/category", name="category_index")
+     * @return Response
+     */
+    public function showCategories()
+    {
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
+        return $this->render('wild/category_index.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
 
     /**
      * @param int|null $id

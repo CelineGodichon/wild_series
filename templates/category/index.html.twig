@@ -3,14 +3,21 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+<div class="container">
+    <h1>Categories</h1>
 
+    <div class="createNewItem">
+        <a href="{{ path('category_new') }}">
+            <i class="fas fa-plus-circle"></i>
+            Create new
+        </a>
+    </div>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th >Id</th>
                 <th>Name</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +26,8 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    <a href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('category_edit', {'id': category.id}) }}"><i class="fas fa-pencil-alt"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -30,6 +37,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('category_new') }}">Create new</a>
+</div>
 {% endblock %}
