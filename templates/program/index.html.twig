@@ -29,8 +29,8 @@
                     <td>{{ program.summary }}</td>
                     <td>{{ program.poster }}</td>
                     <td>
-                        <a href="{{ path('program_show', {'id': program.id}) }}"><i class="far fa-eye"></i></a>
-                        <a href="{{ path('program_edit', {'id': program.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ path('program_show', {'slug': program.slug}) }}"><i class="far fa-eye"></i></a>
+                        <a href="{{ path('program_edit', {'slug': program.slug}) }}"><i class="fas fa-pencil-alt"></i></a>
                     </td>
                 </tr>
             {% else %}
