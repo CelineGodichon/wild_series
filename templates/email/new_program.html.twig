@@ -1,0 +1,71 @@
+<style> body{
+        background-image: linear-gradient(to top,
+        #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%,
+        #e7627d 46%, #b8235a 59%, #801357 71%,
+        #3d1635 84%, #1c1a27 100%);
+        height: 500vh;
+        color: black;
+        text-align: center;
+    }
+h1 {
+    color:white;
+}
+    img{
+        max-height : 300px;
+    }
+
+    @keyframes color-me-in {
+        100% {
+            color: #FF6590;
+        }
+        90% {
+            color: #B8596C;
+        }
+        80% {
+            color: pink;
+        }
+        70% {
+            color: pink;
+        }
+        60% {
+            color: deeppink;
+        }
+        50% {
+            color: #73206B;
+        }
+        40% {
+            color: violet;
+        }
+        30% {
+            color: #382A40;
+        }
+        20% {
+            color: darkviolet;
+        }
+        10% {
+            color: #1C1A2F;
+        }
+        0% {
+            color: #0E0E1C;
+        }
+    }
+    .main-title {
+        animation-duration: 1s;
+        animation-name: color-me-in;
+    }
+
+</style>
+<body>
+<h1 class="main-title">WILD SERIES</h1>
+<h1>Hello</h1>
+<p>A new program is on air ! </p>
+<h1>{{ program.title }}</h1>
+
+<p>Category : {{ program.category.name }}</p>
+<img src="{{ program.poster }}" alt="">
+<p>{{ program.summary }}</p>
+
+<a href="localhost:8000/program/{{ program.id }}"> Come see !</a>
+
+
+</body>
