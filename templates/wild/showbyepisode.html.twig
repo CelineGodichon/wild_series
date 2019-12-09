@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="media episodes d-flex flex-column align-items-center">
+    <div class="media episodes d-flex flex-column align-items-center mt-5 mb-5">
         <div class="programInfos d-flex flex-column align-items-center"><h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
@@ -16,6 +16,24 @@
                 <p>{{ episode.synopsis }}</p>
             </div>
             <hr>
+            <h1 class="text-center mt-5 mb-5">Comments</h1>
+            {% for comment in comments %}
+                <div class="container">
+                    <p>{{ comment.comment }}</p>
+                </div>
+            {% endfor %}
+
+            {% if app.user %}
+                <div class="container">
+            <h3>Leave us your comment about this episode</h3>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" name="btnComment" class="btn">Post your comment</button>
+                    {{ form_end(form) }}
+                </div>
+            {% endif %}
+
+
         </div>
     </div>
     <div>

@@ -22,7 +22,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
                 demons, survive one apocalypse after another, attend high school and college... and 
                 above all, understand that growing up can truly be Hell sometimes... literally.',
-            'poster' => 'poster',
+            'poster' => 'http://via.placeholder.com/200x360',
             'category' => 'category_1'],
         'The Hauting of Hill House' => [
             'summary' => 'In the summer of 1992, Hugh and Olivia Crain and their children – Steven, 
@@ -32,7 +32,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 results in a tragic loss and the family fleeing from the house. Twenty-six years later, the 
                 Crain siblings and their estranged father reunite after tragedy strikes again, and they are 
                 forced to confront how their time in Hill House had affected each of them.',
-            'poster' => 'poster',
+            'poster' => 'http://via.placeholder.com/200x360',
             'category' => 'category_1'],
         'Friends' => [
             'summary' => 'Rachel Green, Ross Geller, Monica Geller, Joey Tribbiani, Chandler Bing and Phoebe 
@@ -41,7 +41,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 trouble, past and future romances, fights, laughs, tears and surprises as they learn what it 
                 really means to be a friend.',
             'poster' => 'poster',
-            'category' => 'category_2'
+            'category' => 'http://via.placeholder.com/200x360'
         ]
     ];
 
