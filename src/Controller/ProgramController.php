@@ -21,6 +21,8 @@ class ProgramController extends AbstractController
 {
     /**
      * @Route("/", name="program_index", methods={"GET"})
+     * @param ProgramRepository $programRepository
+     * @return Response
      */
     public function index(ProgramRepository $programRepository): Response
     {
@@ -36,6 +38,7 @@ class ProgramController extends AbstractController
      * @param MailerInterface $mailer
      * @return Response
      * @throws TransportExceptionInterface
+
      */
     public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
     {
@@ -44,11 +47,11 @@ class ProgramController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = $slugify->generate($program->getTitle());
-            $program->setSlug($slug);
+            $program->setSlug($slugify->generate($program->getTitle()));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($program);
             $entityManager->flush();
+
 
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
@@ -60,7 +63,9 @@ class ProgramController extends AbstractController
 
             $mailer->send($email);
 
-            return $this->redirectToRoute('program_show', ['id'=> $program->getId()]);
+
+            return $this->redirectToRoute('program_show', ['slug'=> $program->getSlug()]);
+
         }
 
         return $this->render('program/new.html.twig', [
@@ -70,7 +75,9 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="program_show", methods={"GET"})
+     * @Route("/{slug}", name="program_show", methods={"GET"})
+     * @param Program $program
+     * @return Response
      */
     public function show(Program $program): Response
     {
@@ -80,7 +87,10 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="program_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="program_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Program $program
+     * @return Response
      */
     public function edit(Request $request, Program $program): Response
     {
@@ -100,7 +110,10 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="program_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="program_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Program $program
+     * @return Response
      */
     public function delete(Request $request, Program $program): Response
     {

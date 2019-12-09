@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Episode;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,19 +28,23 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/new", name="episode_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param Slugify $slugify
+     * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Slugify $slugify): Response
     {
         $episode = new Episode();
         $form = $this->createForm(EpisodeType::class, $episode);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $episode->setSlug($slugify->generate($episode->getTitle()));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($episode);
             $entityManager->flush();
 
-            return $this->redirectToRoute('episode_show', ['id'=> $episode->getId()]);
+            return $this->redirectToRoute('episode_show', ['slug'=> $episode->getSlug()]);
         }
 
         return $this->render('episode/new.html.twig', [
@@ -49,7 +54,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_show", methods={"GET"})
+     * @Route("/{slug}", name="episode_show", methods={"GET"})
      */
     public function show(Episode $episode): Response
     {
@@ -59,7 +64,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="episode_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="episode_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Episode $episode): Response
     {
@@ -79,11 +84,11 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="episode_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Episode $episode): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$episode->getSlug(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($episode);
             $entityManager->flush();

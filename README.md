@@ -20,5 +20,8 @@ https://www.loom.com/share/ab4b27f5571948968be960270301389b
 - Quest #15 : Fixtures
 https://www.loom.com/share/c96e815342f0440398223667549b7690
 
+-Quest#16 : Services Slugify
+https://www.loom.com/share/28850cc9f54c43b2a711df262fec8108
+
 - Quest #17 : Mailer
 https://www.loom.com/share/92f38e84a92443159a26060c6304df9b
