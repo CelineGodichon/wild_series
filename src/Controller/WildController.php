@@ -9,6 +9,7 @@ use App\Entity\Comment;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Entity\User;
 use App\Form\CommentType;
 use Doctrine\DBAL\Event\SchemaEventArgs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -258,5 +259,13 @@ class WildController extends AbstractController
         }
 
         return $this->redirectToRoute('wild_episode', ['id' => $comment->getEpisode()->getId()]);
+    }
+
+    /**
+     * @Route("/profile", name="profile")
+     * @return Response
+     */
+    public function profile(){
+        return $this->render('wild/profile.html.twig');
     }
 }

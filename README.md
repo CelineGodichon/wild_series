@@ -29,5 +29,8 @@ https://www.loom.com/share/92f38e84a92443159a26060c6304df9b
 - Quest #18 : User & Comments
 https://www.loom.com/share/b7aeba5f3f9b4e82ae13a9901dd2a820
 
-- Quest #19 :
+- Quest #19 : Routes Security
 https://www.loom.com/share/1bde59b1c90144329fbdb0a29f6d8637
+
+- Quest #20 : User Registration
+https://www.loom.com/share/d49ba7ee443b4508856e99d4910325b4

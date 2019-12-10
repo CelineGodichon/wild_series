@@ -22,7 +22,7 @@
                     <p>{{ comment.comment }}</p>
 
                    {% if app.user.id is defined and comment.author.id == app.user.id or is_granted("ROLE_ADMIN")%}
-                        <a href="{{ path('wild_comment_edit', {'id' : comment.id}) }}">
+                        <a class="btn" href="{{ path('wild_comment_edit', {'id' : comment.id}) }}">
                             Update / Delete ?
                         </a>
 

@@ -38,14 +38,14 @@
                 {% endif %}
                 <li class="nav-item">
                     {% if app.user %}
-                        <a href="" class="nav-link">{{ app.user.email }}</a>
+                        <a href="{{ path('wild_profile') }}" class="nav-link">{{ app.user.email }}</a>
                     {% endif %}
                 </li>
                 <li class="nav-item">
                     {% if app.user %}
-                        <a href="{{ path('app_logout') }}" class="nav-link"> Se déconnecter</a>
+                        <a href="{{ path('app_logout') }}" class="nav-link"> Log out</a>
                     {% else %}
-                        <a href="{{ path('app_login') }}" class="nav-link"> Se connecter</a>
+                        <a href="{{ path('app_login') }}" class="nav-link"> Log in</a>
                     {% endif %}
                 </li>
             </ul>
