@@ -40,9 +40,8 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 Over the course of ten years, this average group of buddies goes through massive mayhem, family 
                 trouble, past and future romances, fights, laughs, tears and surprises as they learn what it 
                 really means to be a friend.',
-            'poster' => 'poster',
-            'category' => 'http://via.placeholder.com/200x360'
-        ]
+            'poster' => 'http://via.placeholder.com/200x360',
+            'category' => 'category_2']
     ];
 
     public function load(ObjectManager $manager)

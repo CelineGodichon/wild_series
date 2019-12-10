@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Comment{% endblock %}
+
+{% block body %}
+<div class="container">
+
+<h1>Edit Comment</h1>
+
+    {{ include('comment/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('comment_index') }}"><i class="far fa-arrow-alt-circle-left"></i> Back</a
+
+    {{ include('comment/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="createNewItem">
+        <a href="{{ path('comment_new') }}">
+            <i class="fas fa-plus-circle"></i>
+            Create new
+        </a>
+    </div>
+
+<h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Comment</th>
+                <th>Rate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.rate }}</td>
+                <td>
+                    <a href="{{ path('comment_show', {'id': comment.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('comment_edit', {'id': comment.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

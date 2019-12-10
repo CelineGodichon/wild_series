@@ -71,6 +71,15 @@ body {
     text-align: center;
     animation-name: color-me-in;
   }
+  .btn {
+    background-color: $lightPink;
+    border: $lightPink;
+
+    &:hover {
+      background: $violet;
+      color: $white;
+    }
+  }
 }
 
 nav {
