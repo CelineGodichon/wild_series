@@ -36,6 +36,10 @@ class Program
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/plus belle la vie/",
+     *      match=false,
+     *      message=" I WILL NOT TOLERATE THIS ON MY WEBSITE ! ")
      */
     private $summary;
 
