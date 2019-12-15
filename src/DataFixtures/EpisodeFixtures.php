@@ -16,13 +16,13 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = Faker\Factory::create('fr_FR');
         $slugify = new Slugify();
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $episode = new Episode();
             $episode->setTitle($faker->text(20));
             $episode->setNumber($faker->randomDigit);
             $episode->setSynopsis($faker->text(300));
             $episode->setSlug($slugify->generate($episode->getTitle()));
-            $number = rand(0, 19);
+            $number = rand(0, 4);
             $episode->setSeason($this->getReference('season_' . $number));
             $manager->persist($episode);
         }

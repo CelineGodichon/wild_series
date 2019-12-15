@@ -17,6 +17,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Summary</th>
+                <th>Actors</th>
                 <th>Poster</th>
                 <th>Actions</th>
             </tr>
@@ -27,10 +28,16 @@
                     <td>{{ program.id }}</td>
                     <td>{{ program.title }}</td>
                     <td>{{ program.summary }}</td>
+                    <td>
+                        {% for actor in program.actors %}
+                            <li>{{ actor.name }}</li>
+                        {% endfor %}
+                    </td>
                     <td>{{ program.poster }}</td>
                     <td>
                         <a href="{{ path('program_show', {'slug': program.slug}) }}"><i class="far fa-eye"></i></a>
-                        <a href="{{ path('program_edit', {'slug': program.slug}) }}"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ path('program_edit', {'slug': program.slug}) }}"><i
+                                    class="fas fa-pencil-alt"></i></a>
                     </td>
                 </tr>
             {% else %}
