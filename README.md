@@ -34,3 +34,6 @@ https://www.loom.com/share/1bde59b1c90144329fbdb0a29f6d8637
 
 - Quest #20 : User Registration
 https://www.loom.com/share/d49ba7ee443b4508856e99d4910325b4
+
+-Quest #21 : Validations 
+https://www.loom.com/share/bb6a51a3d5b94970867a7bf0a5863a61

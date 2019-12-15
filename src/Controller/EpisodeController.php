@@ -18,6 +18,8 @@ class EpisodeController extends AbstractController
 {
     /**
      * @Route("/", name="episode_index", methods={"GET"})
+     * @param EpisodeRepository $episodeRepository
+     * @return Response
      */
     public function index(EpisodeRepository $episodeRepository): Response
     {
@@ -85,6 +87,9 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="episode_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Episode $episode
+     * @return Response
      */
     public function delete(Request $request, Episode $episode): Response
     {
