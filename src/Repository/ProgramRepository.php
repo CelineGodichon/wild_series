@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Program;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Program|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,7 @@ class ProgramRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Program::class);
     }
+
 
     public function findAllActorsInProgram()
     {

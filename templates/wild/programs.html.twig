@@ -5,27 +5,48 @@
 {% block body %}
 
     <h1 class="text-center mt-5 mb-5">All programs : </h1>
-    <div class="d-flex programs_index justify-content-around">
+    {#  <div class="d-flex programs_index justify-content-around">
+{#
+          {% for program in programs %}
+
+              <div class="card">
+                  <img src="{{ program.poster }}" class="card-img-top" alt="...">
+                  <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">
+                          <a href="{{ path('wild_program', {'id': program.id}) }}">
+                              <h3>{{ program.title }} </h3>
+                          </a>
+                      </h5>
+                      <p class="card-text">{{ program.category.name }}</p>
+                      <p class="card-text-summary">{{ program.summary }}</p>
+                      <a href="{{ path('wild_program', {'id' : program.id}) }}" class="btn mt-auto">Read more</a>
+                  </div>
+              </div>
+
+          {% else %}
+              No program found
+          {% endfor %}
+    </div>#}
+
+<div class="container">
+    <div class="row">
 
         {% for program in programs %}
-
-            <div class="card">
-                <img src="{{ program.poster }}" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">
-                        <a href="{{ path('wild_program', {'id': program.id}) }}">
-                            <h3>{{ program.title }} </h3>
-                        </a>
-                    </h5>
-                    <p class="card-text">{{ program.category.name }}</p>
-                    <p class="card-text-summary">{{ program.summary }}</p>
-                    <a href="{{ path('wild_program', {'id' : program.id}) }}" class="btn mt-auto">Read more</a>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ program.title }}</h5>
+                        <p class="card-text"> {{ program.summary }}</p>
+                    </div>
                 </div>
             </div>
-
-        {% else %}
-            No program found
         {% endfor %}
+
+    </div>
+
+</div>
+    <div class="navigation">
+        {{ knp_pagination_render(programs) }}
     </div>
     <br>
     <a href="{{ path('app_index') }}"> Back to Homepage </a>

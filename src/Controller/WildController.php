@@ -11,7 +11,10 @@ use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\User;
 use App\Form\CommentType;
+use App\Repository\ProgramRepository;
 use Doctrine\DBAL\Event\SchemaEventArgs;
+use Knp\Component\Pager\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,13 +36,18 @@ class WildController extends AbstractController
 
     /**
      * @Route("/programs", name="programs")
+     * @param PaginatorInterface $paginator
+     * @param ProgramRepository $programRepository
+     * @param Request $request
      * @return Response
      */
-    public function showPrograms()
+    public function showPrograms(PaginatorInterface $paginator, ProgramRepository $programRepository, Request $request)
     {
-        $programs = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findAll();
+        $programs = $paginator->paginate(
+            $programRepository->findAll(),
+            $request->query->getInt('page', 1),
+        5);
+
         return $this->render('wild/programs.html.twig', [
             'programs' => $programs,
         ]);

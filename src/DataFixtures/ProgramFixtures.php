@@ -41,7 +41,68 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 trouble, past and future romances, fights, laughs, tears and surprises as they learn what it 
                 really means to be a friend.',
             'poster' => 'http://via.placeholder.com/200x300',
-            'category' => 'category_2']
+            'category' => 'category_2'],
+        'Buffy The Vampi' => [
+            'summary' => 'In every generation there is a chosen one... 
+                she alone will stand against the vampires, the demons and the forces of 
+                darkness. She is the slayer." Buffy Summers knows this tale by heart, and 
+                no matter how hard she tries to be just a "normal girl", she can not escape 
+                from her destiny... Thankfully, she is not alone in her quest to save the world, 
+                as she has the help of her friends, the hilarious (and surprisingly quite effective) 
+                evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
+                demons, survive one apocalypse after another, attend high school and college... and 
+                above all, understand that growing up can truly be Hell sometimes... literally.',
+            'poster' => 'http://via.placeholder.com/200x300',
+            'category' => 'category_1'],
+        'Buffy The Vampir' => [
+            'summary' => 'In every generation there is a chosen one... 
+                she alone will stand against the vampires, the demons and the forces of 
+                darkness. She is the slayer." Buffy Summers knows this tale by heart, and 
+                no matter how hard she tries to be just a "normal girl", she can not escape 
+                from her destiny... Thankfully, she is not alone in her quest to save the world, 
+                as she has the help of her friends, the hilarious (and surprisingly quite effective) 
+                evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
+                demons, survive one apocalypse after another, attend high school and college... and 
+                above all, understand that growing up can truly be Hell sometimes... literally.',
+            'poster' => 'http://via.placeholder.com/200x300',
+            'category' => 'category_1'],
+        'Buffy The Vampire ' => [
+            'summary' => 'In every generation there is a chosen one... 
+                she alone will stand against the vampires, the demons and the forces of 
+                darkness. She is the slayer." Buffy Summers knows this tale by heart, and 
+                no matter how hard she tries to be just a "normal girl", she can not escape 
+                from her destiny... Thankfully, she is not alone in her quest to save the world, 
+                as she has the help of her friends, the hilarious (and surprisingly quite effective) 
+                evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
+                demons, survive one apocalypse after another, attend high school and college... and 
+                above all, understand that growing up can truly be Hell sometimes... literally.',
+            'poster' => 'http://via.placeholder.com/200x300',
+            'category' => 'category_1'],
+        'Buffy The' => [
+            'summary' => 'In every generation there is a chosen one... 
+                she alone will stand against the vampires, the demons and the forces of 
+                darkness. She is the slayer." Buffy Summers knows this tale by heart, and 
+                no matter how hard she tries to be just a "normal girl", she can not escape 
+                from her destiny... Thankfully, she is not alone in her quest to save the world, 
+                as she has the help of her friends, the hilarious (and surprisingly quite effective) 
+                evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
+                demons, survive one apocalypse after another, attend high school and college... and 
+                above all, understand that growing up can truly be Hell sometimes... literally.',
+            'poster' => 'http://via.placeholder.com/200x300',
+            'category' => 'category_1'],
+        'Buffy' => [
+            'summary' => 'In every generation there is a chosen one... 
+                she alone will stand against the vampires, the demons and the forces of 
+                darkness. She is the slayer." Buffy Summers knows this tale by heart, and 
+                no matter how hard she tries to be just a "normal girl", she can not escape 
+                from her destiny... Thankfully, she is not alone in her quest to save the world, 
+                as she has the help of her friends, the hilarious (and surprisingly quite effective) 
+                evil-fighting team called "The Scooby Gang". Together, Buffy & co. will slay their 
+                demons, survive one apocalypse after another, attend high school and college... and 
+                above all, understand that growing up can truly be Hell sometimes... literally.',
+            'poster' => 'http://via.placeholder.com/200x300',
+            'category' => 'category_1'],
+
     ];
 
     public function load(ObjectManager $manager)
