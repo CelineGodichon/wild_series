@@ -41,4 +41,6 @@ https://www.loom.com/share/bb6a51a3d5b94970867a7bf0a5863a61
 -Quest #22 : QueryBuilder
 https://www.loom.com/share/1802a614beac48c5a54582bb517245fe
 
+- Quest #23 : Flashes Messages
+https://www.loom.com/share/41f9ed0eb6ed475eaf911e5094e81588
 
