@@ -46,7 +46,7 @@ class WildController extends AbstractController
         $programs = $paginator->paginate(
             $programRepository->findAll(),
             $request->query->getInt('page', 1),
-        5);
+        3);
 
         return $this->render('wild/programs.html.twig', [
             'programs' => $programs,

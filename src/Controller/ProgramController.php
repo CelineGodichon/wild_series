@@ -51,6 +51,10 @@ class ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($program);
             $entityManager->flush();
+            $this->addFlash(
+                'success',
+                'Your program has been successfully added'
+            );
 
 
             $email = (new Email())
@@ -121,6 +125,10 @@ class ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+            $this->addFlash(
+                'danger',
+                'Your program has been successfully deleted'
+            );
         }
 
         return $this->redirectToRoute('program_index');

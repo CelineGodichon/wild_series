@@ -13,6 +13,20 @@
 <header>
     {% include 'navbar.html.twig' %}
 </header>
+
+{% block flash %}
+
+{% for label, messages in app.flashes %}
+
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endfor %}
+{% endblock %}
+
 {% block body %}{% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

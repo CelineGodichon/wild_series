@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
       <trans-unit id="Ib2sI8P" resname="Searchword...">
         <source>Searchword...</source>
-        <target>Recherche</target>
+        <target>Buscar</target>
       </trans-unit>
       <trans-unit id="CDjx2ju" resname="hello_username">
         <source>hello_username</source>
-        <target>Bonjour %username%</target>
+        <target>Hola %username%</target>
       </trans-unit>
       <trans-unit id="Q7UTU9q" resname="account.logout">
         <source>account.logout</source>
-        <target>Se déconnecter</target>
+        <target>Desconectarse</target>
       </trans-unit>
       <trans-unit id="E_t5j6Q" resname="account.login">
         <source>account.login</source>
-        <target>Se connecter</target>
+        <target>Conectarse</target>
       </trans-unit>
       <trans-unit id="KA1Eqx6" resname="welcome">
         <source>welcome</source>
-        <target>Bienvenu</target>
+        <target>Hola</target>
       </trans-unit>
       <trans-unit id="_5WOy_T" resname="&lt;li&gt; hello_username &lt;/li&gt;">
         <source>&lt;li&gt; hello_username &lt;/li&gt;</source>
@@ -31,31 +31,31 @@
       </trans-unit>
       <trans-unit id="MByTMtE" resname="programs.nav">
         <source>programs.nav</source>
-        <target>Série</target>
+        <target>Serie</target>
       </trans-unit>
       <trans-unit id="NdNqQ5a" resname="categories.nav">
         <source>categories.nav</source>
-        <target>Catégorie</target>
+        <target>Categoría</target>
       </trans-unit>
       <trans-unit id="HU3l3V5" resname="categories.drop">
         <source>categories.drop</source>
-        <target>Catégorie</target>
+        <target>Categoría</target>
       </trans-unit>
       <trans-unit id="NJ4sots" resname="programs.drop">
         <source>programs.drop</source>
-        <target>Série</target>
+        <target>Serie</target>
       </trans-unit>
       <trans-unit id="jD3kE1n" resname="seasons.drop">
         <source>seasons.drop</source>
-        <target>Saison</target>
+        <target>Temporada</target>
       </trans-unit>
       <trans-unit id="0scskbI" resname="episodes.drop">
         <source>episodes.drop</source>
-        <target>Episode</target>
+        <target>Episodio</target>
       </trans-unit>
       <trans-unit id="SduPJEW" resname="languages.choice">
         <source>languages.choice</source>
-        <target>Langues</target>
+        <target>Idiomas</target>
       </trans-unit>
     </body>
   </file>
