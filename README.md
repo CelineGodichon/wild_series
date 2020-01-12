@@ -44,3 +44,8 @@ https://www.loom.com/share/1802a614beac48c5a54582bb517245fe
 - Quest #23 : Flashes Messages
 https://www.loom.com/share/41f9ed0eb6ed475eaf911e5094e81588
 
+- Quest#24 : Where is it ?
+
+- Quest#25 : Translations
+https://www.loom.com/share/af255fbf23a441be939dcb6c9fe4d544
+
