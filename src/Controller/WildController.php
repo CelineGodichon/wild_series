@@ -11,6 +11,7 @@ use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\User;
 use App\Form\CommentType;
+use App\Repository\CategoryRepository;
 use App\Repository\ProgramRepository;
 use Doctrine\DBAL\Event\SchemaEventArgs;
 use Knp\Component\Pager\Paginator;
@@ -275,5 +276,14 @@ class WildController extends AbstractController
      */
     public function profile(){
         return $this->render('wild/profile.html.twig');
+    }
+
+    public function dropdownCategories(CategoryRepository $categoryRepository)
+    {
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('_dropdown_categories.html.twig', [
+            'categories' => $categories
+        ]);
     }
 }
