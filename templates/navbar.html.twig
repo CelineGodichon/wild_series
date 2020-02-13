@@ -11,9 +11,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('wild_programs') }}">{{ 'programs.nav'|trans }}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('wild_categories') }}">{{ 'categories.nav'|trans }}</a>
-                </li>
+                    {{ render(controller(
+                        'App\\Controller\\WildController::dropdownCategories'
+                    )) }}
+{#                    <a class="nav-link" href="{{ path('wild_categories') }}">{{ 'categories.nav'|trans }}</a>#}
             </ul>
             {# <form class="form-inline my-2 my-lg-0">
                  <input class="form-control mr-sm-2" type="search" placeholder="Title/Actors" aria-label="Search">

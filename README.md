@@ -49,3 +49,7 @@ https://www.loom.com/share/41f9ed0eb6ed475eaf911e5094e81588
 - Quest#25 : Translations
 https://www.loom.com/share/af255fbf23a441be939dcb6c9fe4d544
 
+- Quest 26 : Render Controller 
+https://www.loom.com/share/fe290e79c296498ab0631b4dc74fb388
+
+

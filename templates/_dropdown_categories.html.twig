@@ -1,0 +1,15 @@
+
+
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ 'categories.nav'|trans }}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for category in categories %}
+            <a class="dropdown-item" href="{{ path('wild_category', {id : category.id}) }}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
